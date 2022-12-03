@@ -13,11 +13,11 @@ provider "aws" {
 
 variable "environment" {
   type    = list
-  default = ["dev", "staging", "prod"]
+  default = ["staging","preprod", "prod"]
 }
 
 
-resource "aws_sqs_queue" "terraform_queue_dev" {
+resource "aws_sqs_queue" "terraform_queue_staging" {
   name                      = "${var.environment[0]}-${count.index + 1 }-queue"
   message_retention_seconds = 86400
   count                     = 3 
@@ -27,7 +27,8 @@ resource "aws_sqs_queue" "terraform_queue_dev" {
 }
 
 
-resource "aws_sqs_queue" "terraform_queue_staging" {
+
+resource "aws_sqs_queue" "terraform_queue_preprod" {
   name                      = "${var.environment[1]}-${count.index + 1 }-queue"
   message_retention_seconds = 86400
   count                     = 3
@@ -44,3 +45,23 @@ resource "aws_sqs_queue" "terraform_queue_prod" {
     Environment = var.environment[2]
   }
 }
+ 
+output "staging_queues" {
+  value = {
+    for i, q in aws_sqs_queue.terraform_queue_staging :i+1 => q.name
+  }
+}
+
+output "preprod_queues" {
+  value = {
+    for i, q in aws_sqs_queue.terraform_queue_preprod :i+1 => q.name
+  }
+  
+}
+
+output "prod_queues" {
+  value = {
+    for i, q in aws_sqs_queue.terraform_queue_prod :i+1 => q.name
+  }
+}
+
