@@ -1,3 +1,5 @@
+/* Example for data source block */
+
 provider "aws" {
 	region = "us-west-2"
 	skip_credentials_validation = true
