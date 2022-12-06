@@ -1,6 +1,7 @@
-/* Zipman Example */
-/* Credentials have been given a dummy value for security purpose. To run the code */ 
-
+/* Zipmap Function Example */
+/* Credentials have been given a dummy value for security purpose. 
+Valid AWS Credentials need to be provided for this exercise */
+/*
 provider "aws" {
 	region = "us-east-1" 
 	access_key = "demo"
@@ -23,5 +24,5 @@ output "username_with_arn" {
 	value  = zipmap (aws_iam_user.lb[*].name , aws_iam_user.lb[*].arn )
 }
 
-
+*/
 
