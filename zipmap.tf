@@ -1,14 +1,10 @@
 /* Zipman Example */
-
-// create 4 iam users and display the arn with username
+/* Credentials have been given a dummy value for security purpose. To run the code */ 
 
 provider "aws" {
-	region = "eu-west-1"
-	skip_credentials_validation = true
-	skip_requesting_account_id = true
-	skip_metadata_api_check = true
-	access_key = "mock"
-	secret_key = "mock" 
+	region = "us-east-1" 
+	access_key = "demo"
+	secret_key = "demo"
 } 
 
 resource "aws_iam_user" "lb" {
@@ -26,3 +22,6 @@ output "arns" {
 output "username_with_arn" {
 	value  = zipmap (aws_iam_user.lb[*].name , aws_iam_user.lb[*].arn )
 }
+
+
+
