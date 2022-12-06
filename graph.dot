@@ -1,0 +1,14 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.myinstance (expand)" [label = "aws_instance.myinstance", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_instance.myinstance (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] output.instances (expand)" -> "[root] aws_instance.myinstance (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.myinstance (expand)"
+		"[root] root" -> "[root] output.instances (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
