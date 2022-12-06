@@ -1,6 +1,6 @@
 /* Zipmap Function Example */
 /* Credentials have been given a dummy value for security purpose. 
-Valid AWS Credentials need to be provided for this exercise */
+Valid AWS Credentials is mandatory for this exercise */
 
 provider "aws" {
 	region = "us-east-1" 
@@ -11,7 +11,6 @@ provider "aws" {
 resource "aws_iam_user" "lb" {
   name = "iam_user-${count.index + 1}"
   path = "/system/"
-
   count =3 
 
 }
