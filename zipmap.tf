@@ -1,7 +1,7 @@
 /* Zipmap Function Example */
 /* Credentials have been given a dummy value for security purpose. 
 Valid AWS Credentials need to be provided for this exercise */
-/*
+
 provider "aws" {
 	region = "us-east-1" 
 	access_key = "demo"
