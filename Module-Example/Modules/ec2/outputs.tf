@@ -1,4 +1,4 @@
-//"instance_ip_addr" is the keyword
+//"public_ip" is the keyword
 
 output "public_ip" {
 	value = aws_instance.myec2.public_ip
