@@ -1,7 +1,11 @@
-* Tfvars is where we define the values for variables
+* Tfvars is where we initialize/define the values for variables
+
 * The variable names SHOULD BE the same ,wherever it is being declared.
-* By default, the default .tfvars file name is terraform.tfvars. Any 		names other than that is given as argument during run time as 			-var-file=<filename>
+
+* By default, the default .tfvars file name is terraform.tfvars. Any names other than that is given as argument during run time as -var-file=<filename>
+
 * All executions begin at root folder, here it is Staging.
-* The parent module is the Root directory and the child module is the     	reusable template (here, Modules/)
-* The output from the child module should be the keywords only,can be  
-  customised in parent module .
+
+* The parent module is the Root directory (Containing the files with "module" block) and the child module is the reusable template (here, Modules/)
+
+* The output from the child module should be the keywords only,but it can be customised in parent module (for exampls, "public_ip" is the output name from child module     but "staging-instance-public-ip" is the output name for Root module output.
